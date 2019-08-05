@@ -87,7 +87,7 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>Google/Yelp Review Ratings:</strong> <span style='color:#fff'>" + d.review-ratings + "</span>";
+    return "<strong>Google/Yelp Review Ratings:</strong> <span style='color:#fff'>" + d.ratings + "</span>";
   })
 
 var svg = d3.select("body").append("svg")
@@ -100,7 +100,7 @@ svg.call(tip);
 
 d3.csv("./reviews.csv", type, function(error, data) {
   x.domain(data.map(function(d) { return d.provider; }));
-  y.domain([0, d3.max(data, function(d) { return d.review-ratings; })]);
+  y.domain([0, d3.max(data, function(d) { return d.ratings; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -123,19 +123,19 @@ d3.csv("./reviews.csv", type, function(error, data) {
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.provider); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.review-ratings); })
-      .attr("height", function(d) { return height - y(d.review-ratings); })
+      .attr("y", function(d) { return y(d.ratings); })
+      .attr("height", function(d) { return height - y(d.ratings); })
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide)
   
     svg.selectAll("text.label")
-        .data(data.filter(function(d) { return d.review-ratings == (d3.max(data, function(d) { return d.review-ratings; })) }))
+        .data(data.filter(function(d) { return d.ratings == (d3.max(data, function(d) { return d.ratings; })) }))
         .enter().append("text")
         .attr("class", "label")
         .attr("x", function (d) {
             return x(d.operator) + x.rangeBand()/2;
         }).attr("y", function (d) {
-            return y(d.review-ratings) - 25;
+            return y(d.ratings) - 25;
         })
         .style("text-anchor", "middle")
         .text("Fiji Water has the best customer review among other delivery service providers.");
@@ -143,7 +143,7 @@ d3.csv("./reviews.csv", type, function(error, data) {
 });
 
 function type(d) {
-  d.review-ratings = +d.review-ratings;
+  d.ratings = +d.ratings;
   return d;
 }
 </script>
