@@ -101,7 +101,12 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>Google/Yelp Review Ratings:</strong> <span style='color:red'>" + d.value + "</span>";
+  	if(d.feature == 'reviews') {
+  		return "<strong>Google/Yelp Review Ratings:</strong> <span style='color:red'>" + d.value + "</span>";
+  	}else {
+	  	return "<strong>Price per bottle($) value:</strong> <span style='color:red'>" + d.value + "</span>";
+  	}
+    	
   })
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
