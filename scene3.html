@@ -5,7 +5,7 @@ body{font: 10px sans-serif}.axis path,.axis line{fill: none;stroke: #000;shape-r
 </style>
 <body>
 
-<!-- Selection Test Type -->
+<!-- Selection Feature -->
 <b>Select the feature (review/price):</b>
 
 <select id="testtype" onchange="toggle();">
@@ -13,7 +13,7 @@ body{font: 10px sans-serif}.axis path,.axis line{fill: none;stroke: #000;shape-r
   <option value="price-per-bottle">Price per bottle($) value</option>
 </select> 
 
-<!-- Selection State -->
+<!-- Selection Service Area -->
 <span style="margin-left:30px;">
 <b>Select water delivery service area:</b>
   
@@ -34,127 +34,5 @@ body{font: 10px sans-serif}.axis path,.axis line{fill: none;stroke: #000;shape-r
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
-var margin = {top: 40, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-var formatPercent = d3.format(".0%");
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-var y = d3.scale.linear()
-    .range([height, 0]);
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left");
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
-  	if(d.feature == 'reviews') {
-  		return "<strong>Google/Yelp Review Ratings:</strong> <span style='color:red'>" + d.value + "</span>";
-  	}else {
-	  	return "<strong>Price per bottle($) value:</strong> <span style='color:red'>" + d.value + "</span>";
-  	}
-    	
-  })
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-svg.call(tip);
-var selectedtest = document.getElementById('testtype').value;
-var selectedstate = document.getElementById('servicearea').value;
-	
-function draw(){
-  d3.csv("./records.csv", type, function(error, data) {
-  var data = data.filter(function(d){return d.feature == selectedtest && d.location == selectedstate;});
-  x.domain(data.map(function(d) { return d.provider; }));
-  y.domain([0, d3.max(data, function(d) { return d.value; })]);
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end");
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.provider); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); })
-      .on('mouseover', tip.show)
-      .on('mouseout', tip.hide)
-  });
-}
-draw();
-function update(){
-  d3.csv("./records.csv", type, function(error, data) {
-  data.forEach(function(d) {
-	    	d.value = +d.value;
-	    });
-  
-  // filter TestType
-  var data = data.filter(function(d){return d.feature == selectedtest && d.location == selectedstate ;});
-  x.domain(data.map(function(d) { return d.provider; }));
-  y.domain([0, d3.max(data, function(d) { return d.value; })]);
-  
-
- var selection = svg.selectAll("rect")
-	.data(data);  
-	// enter
-        selection.enter()
-          .append("rect")
-	  .attr("class", "bar")
-	  .on('mouseover', tip.show)
-          .on('mouseout', tip.hide);
-	  
-        // exit
-        selection
-          .exit()
-        	.transition()
-        	.delay(100)
-        	.duration(300)
-        	.style({ fill: "yellow"})
-        	.remove();	  
-        // update
-        selection
-          .transition()
-          .duration(750)
-          .ease('bounce')
-          .attr("height", function(d) { return height - y(d.value); })
-          .attr("y", function(d) { return y(d.value); })
-          .attr("width", x.rangeBand())
-          .attr("x", function(d) { return x(d.provider); });
-	  
-      svg.select('.x.axis')
-        .transition()
-        .duration(750)
-        .call(xAxis);
-      svg.select('.y.axis')
-        .transition()
-        .duration(750)
-        .call(yAxis);
-  });
-}	
-function type(d) {
-  d.value = +d.value;
-  return d;
-}
-// Toggle csv data
-function toggle() {
-selectedtest = document.getElementById('testtype').value;
-selectedstate = document.getElementById('servicearea').value;
-update()
-}
+var margin={top:40,right:20,bottom:30,left:40},width=960-margin.left-margin.right,height=500-margin.top-margin.bottom,formatPercent=d3.format(".0%"),x=d3.scale.ordinal().rangeRoundBands([0,width],.1),y=d3.scale.linear().range([height,0]),xAxis=d3.svg.axis().scale(x).orient("bottom"),yAxis=d3.svg.axis().scale(y).orient("left"),tip=d3.tip().attr("class","d3-tip").offset([-10,0]).html(function(t){return"reviews"==t.feature?"<strong>Google/Yelp Review Ratings:</strong> <span style='color:red'>"+t.value+"</span>":"<strong>Price per bottle($) value:</strong> <span style='color:red'>"+t.value+"</span>"}),svg=d3.select("body").append("svg").attr("width",width+margin.left+margin.right).attr("height",height+margin.top+margin.bottom).append("g").attr("transform","translate("+margin.left+","+margin.top+")");svg.call(tip);var selectedtest=document.getElementById("testtype").value,selectedstate=document.getElementById("servicearea").value;function draw(){d3.csv("./records.csv",type,function(t,e){e=e.filter(function(t){return t.feature==selectedtest&&t.location==selectedstate});x.domain(e.map(function(t){return t.provider})),y.domain([0,d3.max(e,function(t){return t.value})]),svg.append("g").attr("class","x axis").attr("transform","translate(0,"+height+")").call(xAxis),svg.append("g").attr("class","y axis").call(yAxis).append("text").attr("transform","rotate(-90)").attr("y",6).attr("dy",".71em").style("text-anchor","end"),svg.selectAll(".bar").data(e).enter().append("rect").attr("class","bar").attr("x",function(t){return x(t.provider)}).attr("width",x.rangeBand()).attr("y",function(t){return y(t.value)}).attr("height",function(t){return height-y(t.value)}).on("mouseover",tip.show).on("mouseout",tip.hide)})}function update(){d3.csv("./records.csv",type,function(t,e){e.forEach(function(t){t.value=+t.value});e=e.filter(function(t){return t.feature==selectedtest&&t.location==selectedstate});x.domain(e.map(function(t){return t.provider})),y.domain([0,d3.max(e,function(t){return t.value})]);var a=svg.selectAll("rect").data(e);a.enter().append("rect").attr("class","bar").on("mouseover",tip.show).on("mouseout",tip.hide),a.exit().transition().delay(100).duration(300).style({fill:"yellow"}).remove(),a.transition().duration(750).ease("bounce").attr("height",function(t){return height-y(t.value)}).attr("y",function(t){return y(t.value)}).attr("width",x.rangeBand()).attr("x",function(t){return x(t.provider)}),svg.select(".x.axis").transition().duration(750).call(xAxis),svg.select(".y.axis").transition().duration(750).call(yAxis)})}function type(t){return t.value=+t.value,t}function toggle(){selectedtest=document.getElementById("testtype").value,selectedstate=document.getElementById("servicearea").value,update()}draw();
 </script>
