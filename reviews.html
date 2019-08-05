@@ -78,11 +78,11 @@ d3.csv("./reviews.csv", type, function(error, data) {
         .enter().append("text")
         .attr("class", "label")
         .attr("x", function (d) {
-            return x(d.operator) + x.rangeBand()/2;
+            return x.rangeBand()/2;
         }).attr("y", function (d) {
             return y(d.ratings) - 25;
         })
-        .style("text-anchor", "right")
+        .style("text-anchor", "left")
         .text("Fiji Water has the best customer review among other delivery service providers.");
 
 });
