@@ -1,63 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-
-body {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.bar {
-  fill: yellow;
-}
-
-.bar:hover {
-  fill: green;
-}
-
-.x.axis path {
-  display: none;
-}
-
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
-
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
-
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
-
-.annotation-note-title, text.label {
-      font-weight: bold;
-    }
-
+body{font: 10px sans-serif}.axis path,.axis line{fill: none;stroke: #000;shape-rendering: crispEdges}.bar{fill: yellow}.bar:hover{fill: green}.x.axis path{display: none}.d3-tip{line-height: 1;font-weight: bold;padding: 12px;background: rgba(0, 0, 0, 0.8);color: #fff;border-radius: 2px}.d3-tip:after{box-sizing: border-box;display: inline;font-size: 10px;width: 100%;line-height: 1;color: rgba(0, 0, 0, 0.8);content: "\25BC";position: absolute;text-align: center}.d3-tip.n:after{margin: -1px 0 0 0;top: 100%;left: 0}.annotation-note-title, text.label{font-weight: bold}
 </style>
 <body>
 <script src="https://d3js.org/d3.v3.min.js"></script>
@@ -88,7 +32,7 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>Average Speed:</strong> <span style='color:#fff'>" + d.avgspeed + "</span>";
+    return "<strong>Price per bottle($) value:</strong> <span style='color:#fff'>" + d.price + "</span>";
   })
 
 var svg = d3.select("body").append("svg")
@@ -99,9 +43,9 @@ var svg = d3.select("body").append("svg")
 
 svg.call(tip);
 
-d3.csv("./upload.csv", type, function(error, data) {
-  x.domain(data.map(function(d) { return d.operator; }));
-  y.domain([0, d3.max(data, function(d) { return d.avgspeed; })]);
+d3.csv("./price-per-bottle.csv", type, function(error, data) {
+  x.domain(data.map(function(d) { return d.provider; }));
+  y.domain([0, d3.max(data, function(d) { return d.price; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -116,37 +60,36 @@ d3.csv("./upload.csv", type, function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Average Upload Speed (kbps)");
+      .text("Price per bottle($) value");
 
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.operator); })
+      .attr("x", function(d) { return x(d.provider); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.avgspeed); })
-      .attr("height", function(d) { return height - y(d.avgspeed); })
+      .attr("y", function(d) { return y(d.price); })
+      .attr("height", function(d) { return height - y(d.price); })
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide)
 
     svg.selectAll("text.label")
-        .data(data.filter(function(d) { return d.avgspeed == (d3.max(data, function(d) { return d.avgspeed; })) }))
+        .data(data.filter(function(d) { return d.price == (d3.max(data, function(d) { return d.price; })) }))
         .enter().append("text")
         .attr("class", "label")
         .attr("x", function (d) {
-            return x(d.operator) + x.rangeBand()/2;
+            return x(d.provider) + x.rangeBand()/2;
         }).attr("y", function (d) {
-            return y(d.avgspeed) - 25;
+            return y(d.price) - 25;
         })
-        .style("text-anchor", "middle")
-        .text("IDEA leads JIO in upload speeds.");
+        .style("text-anchor", "right")
+        .text("DrinkMore Water has the best price-per-bottle($) value among other delivery service providers.");
 
 
 });
 
 function type(d) {
-  d.avgspeed = +d.avgspeed;
+  d.price = +d.price;
   return d;
 }
-
 </script>
