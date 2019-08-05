@@ -82,7 +82,7 @@ d3.csv("./price-per-bottle.csv", type, function(error, data) {
         }).attr("y", function (d) {
             return y(d.price) - 25;
         })
-        .style("text-anchor", "left")
+        .style("text-anchor", "middle")
         .text("DrinkMore Water has the best price-per-bottle($) value among other delivery service providers.");
 
 
