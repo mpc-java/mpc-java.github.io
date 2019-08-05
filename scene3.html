@@ -134,7 +134,13 @@ function draw(){
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Average Speed (kbps)");
+      .text(function(d){
+				if(d.feature == 'reviews') {
+  				return "Google/Yelp Review Ratings";
+  			}else {
+	  			return "Price per bottle($) value";
+  			}      
+      });
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
