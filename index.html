@@ -5,13 +5,136 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-	<script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+		.carousel-inner img{width: 100%;height: 100%}.chart1 rect{fill: steelblue}.axis path,.axis line{fill: none;stroke: black;shape-rendering: crispEdges}.chart2 rect{fill: green}.axis path,.axis line{fill: none;stroke: black;shape-rendering: crispEdges}.chart3 rect{fill: red}.axis path,.axis line{fill: none;stroke: black;shape-rendering: crispEdges}.axis text{font-family: sans-serif;font-size: 11px}.accordion{background-color: #eee;color: #444;cursor: pointer;padding: 18px;width: 100%;border: none;text-align: left;outline: none;font-size: 15px;transition: 0.4s}.active, .accordion:hover{background-color: #ccc}.panel{padding: 0 18px;display: none;background-color: white;overflow: hidden}
+	</style>
 </head>
 <body>
-	<h1>CS-498 DDV: Graded Assignment: 7-3-3 Create a Narrative Visualization</h1>
+<h1>Find the Best Home Water Delivery Services in Washington DC Metro Area</h1>
+<button class="accordion">Overview on this narrative visualization</button>
+<div class="panel">
+<p></p>
+<p>When choosing a best home water delivery service, customers would like to look at factors such as reviews, delivery area and schedules, price per bottle, volume of water delivery, bottle type and amenities to choose a supplier for the delivery.</p>
+<p>I have used the martini glass structure with three scenes. The first two scenes are fixed to communicate a single message and the last scene is an interactive visualization and is open ended for exploration by the viewer.</p>
+<p>The parameter of the visualization for the first two scenes is the feature (review/price-per-bottle) and in the third slide the delivery service area.</p>
+<p><strong>Scene: 1</strong></p>
+<p>In the first scene, a bar chart of reviews provided by existing customers in Washington DC Metro Area are plotted.</p>
+<p>Parameter Feature = "review"</p>
+<p>Annotation is used to highlight the review rating of the provider.</p>
+<p>Tooltips are available when the bars are hovered upon.</p>
+<p>The trigger for the next scene is the right arrow of the carousel.</p>
+<p>Inference: Fiji Water has the best customer review among other delivery service providers.</p>
+<p><strong>Scene: 2</strong></p>
+<p>In the second scene, a bar chart of price per bottle by various home water delivery service providers are plotted.</p>
+<p>Parameter Feature = "price-per-bottle"</p>
+<p>Annotation is used to highlighted the price per bottle value of the delivery service provider.</p>
+<p>Tooltips are available when the bars are hovered upon.</p>
+<p>Trigger for next scene is provided using the right arrow of the carousel.</p>
+<p>Inference: DrinkMore Water offers best price per bottle ($) values when compared to other delivery service providers.</p>
+<p><strong>Scene: 3</strong></p>
+<p>In the third and last scene, an interactive bar chart is presented to select the feature (uploda/download) and the delivery service area within Washington DC Metro Area to compare the reviews and price-per-bottle values by various home water delivery service providers.</p>
+<p>This is on open ended section of the martini glass structure where the narrative visualisation is upon the scene reader's discretion.&nbsp;</p>
+<p>Tooltips are available when the bars are hovered upon.</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+
+<div id="demo" class="carousel slide">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <table style="height: 800px;background-color: #000000;" width=100%>
+      <tbody>
+      <tr>
+      <td style="width: 100%;" colspan="3">&nbsp;</td>
+      </tr>
+      <tr>
+      <td style="width: 10%;">&nbsp;</td>
+      <td style="width: 80%; background-color: #ffffff; text-align: center;">
+	      <p><h3>Scene:1 - Reviews (Google/Yelp)</h3></p>
+	      <iframe src="https://mpc-java.github.io/reviews.html" height="600" width="1000" style="border:none;"></iframe></td>
+      <td style="width: 10%;">&nbsp;</td>
+      </tr>
+      <tr>
+      <td style="width: 100%;" colspan="3">&nbsp;</td>
+      </tr>
+      </tbody>
+      </table>
+      
+    </div>
+    <div class="carousel-item">
+      <table style="height: 800px;background-color: #000000;" width=100%>
+      <tbody>
+      <tr>
+      <td style="width: 100%;" colspan="3">&nbsp;</td>
+      </tr>
+      <tr>
+      <td style="width: 10%;">&nbsp;</td>
+      <td style="width: 80%; background-color: #ffffff; text-align: center;">
+	      <p><h3>Scene:2 - Price per bottle ($)</h3></p>
+	      <iframe src="https://mpc-java.github.io/price-per-bottle.html" height="600" width="1000" style="border:none;"></iframe></td>
+      <td style="width: 10%;">&nbsp;</td>
+      </tr>
+      <tr>
+      <td style="width: 100%;" colspan="3">&nbsp;</td>
+      </tr>
+      </tbody>
+      </table>
+    </div>
+    <div class="carousel-item">
+      <table style="height: 800px;background-color: #000000;" width=100%>
+      <tbody>
+      <tr>
+      <td style="width: 100%;" colspan="3">&nbsp;</td>
+      </tr>
+      <tr>
+      <td style="width: 10%;">&nbsp;</td>
+      <td style="width: 80%; background-color: #ffffff; text-align: center;">
+	      <p><h3>Scene:3 - Interactive view to explore reviews and price per bottle by various home water delivery service providers within Washington DC Metro Area</h3></p>
+	      <iframe src="https://mpc-java.github.io/scene3.html" height="700" width="1000" style="border:none;"></iframe></td>
+      <td style="width: 10%;">&nbsp;</td>
+      </tr>
+      <tr>
+      <td style="width: 100%;" colspan="3">&nbsp;</td>
+      </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
 </body>
 </html>

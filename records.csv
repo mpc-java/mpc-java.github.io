@@ -1,0 +1,141 @@
+delivery-location,provider,feature,value
+Rockville,Absopure,reviews,1.5
+Rockville,ReadyRefresh,reviews,1.0
+Rockville,Costco Water,reviews,3.0
+Rockville,Crystal Springs,reviews,1
+Rockville,Culligan,reviews,3
+Rockville,Fiji Water,reviews,4.4
+Rockville,DrinkMore Water,reviews,3.5
+Rockville,Absopure,price-per-bottle,7
+Rockville,ReadyRefresh,price-per-bottle,6
+Rockville,Costco Water,price-per-bottle,5
+Rockville,Crystal Springs,price-per-bottle,8
+Rockville,Culligan,price-per-bottle,9
+Rockville,Fiji Water,price-per-bottle,8
+Rockville,DrinkMore Water,price-per-bottle,4
+Fairfax,Absopure,reviews,1.5
+Fairfax,ReadyRefresh,reviews,1.0
+Fairfax,Costco Water,reviews,3.0
+Fairfax,Crystal Springs,reviews,1
+Fairfax,Culligan,reviews,3
+Fairfax,Fiji Water,reviews,4.4
+Fairfax,DrinkMore Water,reviews,3.5
+Fairfax,Absopure,price-per-bottle,7
+Fairfax,ReadyRefresh,price-per-bottle,6
+Fairfax,Costco Water,price-per-bottle,5
+Fairfax,Crystal Springs,price-per-bottle,8
+Fairfax,Culligan,price-per-bottle,9
+Fairfax,Fiji Water,price-per-bottle,8
+Fairfax,DrinkMore Water,price-per-bottle,4
+Chantilly,Absopure,reviews,1.5
+Chantilly,ReadyRefresh,reviews,1.0
+Chantilly,Costco Water,reviews,3.0
+Chantilly,Crystal Springs,reviews,1
+Chantilly,Culligan,reviews,3
+Chantilly,Fiji Water,reviews,4.4
+Chantilly,DrinkMore Water,reviews,3.5
+Chantilly,Absopure,price-per-bottle,7
+Chantilly,ReadyRefresh,price-per-bottle,6
+Chantilly,Costco Water,price-per-bottle,5
+Chantilly,Crystal Springs,price-per-bottle,8
+Chantilly,Culligan,price-per-bottle,9
+Chantilly,Fiji Water,price-per-bottle,8
+Chantilly,DrinkMore Water,price-per-bottle,4
+Aldie,Absopure,reviews,1.5
+Aldie,ReadyRefresh,reviews,1.0
+Aldie,Costco Water,reviews,3.0
+Aldie,Crystal Springs,reviews,1
+Aldie,Culligan,reviews,3
+Aldie,Fiji Water,reviews,4.4
+Aldie,DrinkMore Water,reviews,3.5
+Aldie,Absopure,price-per-bottle,7
+Aldie,ReadyRefresh,price-per-bottle,6
+Aldie,Costco Water,price-per-bottle,5
+Aldie,Crystal Springs,price-per-bottle,8
+Aldie,Culligan,price-per-bottle,9
+Aldie,Fiji Water,price-per-bottle,8
+Aldie,DrinkMore Water,price-per-bottle,4
+Reston,Absopure,reviews,1.5
+Reston,ReadyRefresh,reviews,1.0
+Reston,Costco Water,reviews,3.0
+Reston,Crystal Springs,reviews,1
+Reston,Culligan,reviews,3
+Reston,Fiji Water,reviews,4.4
+Reston,DrinkMore Water,reviews,3.5
+Reston,Absopure,price-per-bottle,7
+Reston,ReadyRefresh,price-per-bottle,6
+Reston,Costco Water,price-per-bottle,5
+Reston,Crystal Springs,price-per-bottle,8
+Reston,Culligan,price-per-bottle,9
+Reston,Fiji Water,price-per-bottle,8
+Reston,DrinkMore Water,price-per-bottle,4
+Herndon,Absopure,reviews,1.5
+Herndon,ReadyRefresh,reviews,1.0
+Herndon,Costco Water,reviews,3.0
+Herndon,Crystal Springs,reviews,1
+Herndon,Culligan,reviews,3
+Herndon,Fiji Water,reviews,4.4
+Herndon,DrinkMore Water,reviews,3.5
+Herndon,Absopure,price-per-bottle,7
+Herndon,ReadyRefresh,price-per-bottle,6
+Herndon,Costco Water,price-per-bottle,5
+Herndon,Crystal Springs,price-per-bottle,8
+Herndon,Culligan,price-per-bottle,9
+Herndon,Fiji Water,price-per-bottle,8
+Herndon,DrinkMore Water,price-per-bottle,4
+Germantown,Absopure,reviews,1.5
+Germantown,ReadyRefresh,reviews,1.0
+Germantown,Costco Water,reviews,3.0
+Germantown,Crystal Springs,reviews,1
+Germantown,Culligan,reviews,3
+Germantown,Fiji Water,reviews,4.4
+Germantown,DrinkMore Water,reviews,3.5
+Germantown,Absopure,price-per-bottle,7
+Germantown,ReadyRefresh,price-per-bottle,6
+Germantown,Costco Water,price-per-bottle,5
+Germantown,Crystal Springs,price-per-bottle,8
+Germantown,Culligan,price-per-bottle,9
+Germantown,Fiji Water,price-per-bottle,8
+Germantown,DrinkMore Water,price-per-bottle,4
+Gaithersburg,Absopure,reviews,1.5
+Gaithersburg,ReadyRefresh,reviews,1.0
+Gaithersburg,Costco Water,reviews,3.0
+Gaithersburg,Crystal Springs,reviews,1
+Gaithersburg,Culligan,reviews,3
+Gaithersburg,Fiji Water,reviews,4.4
+Gaithersburg,DrinkMore Water,reviews,3.5
+Gaithersburg,Absopure,price-per-bottle,7
+Gaithersburg,ReadyRefresh,price-per-bottle,6
+Gaithersburg,Costco Water,price-per-bottle,5
+Gaithersburg,Crystal Springs,price-per-bottle,8
+Gaithersburg,Culligan,price-per-bottle,9
+Gaithersburg,Fiji Water,price-per-bottle,8
+Gaithersburg,DrinkMore Water,price-per-bottle,4
+Bethesda,Absopure,reviews,1.5
+Bethesda,ReadyRefresh,reviews,3.0
+Bethesda,Costco Water,reviews,2.7
+Bethesda,Crystal Springs,reviews,1.0
+Bethesda,Culligan,reviews,2.5
+Bethesda,Fiji Water,reviews,4.7
+Bethesda,DrinkMore Water,reviews,3.5
+Bethesda,Absopure,price-per-bottle,7
+Bethesda,ReadyRefresh,price-per-bottle,5
+Bethesda,Costco Water,price-per-bottle,8
+Bethesda,Crystal Springs,price-per-bottle,9
+Bethesda,Culligan,price-per-bottle,7
+Bethesda,Fiji Water,price-per-bottle,4
+Bethesda,DrinkMore Water,price-per-bottle,6
+Silver Spring,Absopure,reviews,1.0
+Silver Spring,ReadyRefresh,reviews,1.7
+Silver Spring,Costco Water,reviews,3.9
+Silver Spring,Crystal Springs,reviews,1.5
+Silver Spring,Culligan,reviews,3.1
+Silver Spring,Fiji Water,reviews,4.1
+Silver Spring,DrinkMore Water,reviews,3.7
+Silver Spring,Absopure,price-per-bottle,9
+Silver Spring,ReadyRefresh,price-per-bottle,7
+Silver Spring,Costco Water,price-per-bottle,4
+Silver Spring,Crystal Springs,price-per-bottle,9
+Silver Spring,Culligan,price-per-bottle,8
+Silver Spring,Fiji Water,price-per-bottle,7
+Silver Spring,DrinkMore Water,price-per-bottle,6
